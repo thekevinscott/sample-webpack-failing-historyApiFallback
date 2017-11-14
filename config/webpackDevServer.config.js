@@ -85,12 +85,13 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
       rewrites: [
         // shows views/landing.html as the landing page
-        { from: /^\/$/, to: 'landing.html' },
+        { from: /^\/$/, to: "landing.html" },
         // shows views/subpage.html for all routes starting with /subpage
-        { from: /^\/subpage/, to: 'subpage.html' },
-        // shows views/404.html on all other pages
-        { from: /./, to: '404.html' },
-      ],
+        { from: /^\/subpage/, to: "subpage.html" },
+        // shows views/app.html on all other pages
+        // but doesn't work for routes other than app.html
+        { from: /./, to: "app.html" }
+      ]
     },
     public: allowedHost,
     proxy,
